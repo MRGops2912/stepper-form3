@@ -1,0 +1,64 @@
+.container {
+  background-color: #dcedc8;
+  color: #0f0f0f;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  margin: 30px;
+  height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+}
+
+.stepperForm {
+  background-color: #ffffff;
+  width: 25vw;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 2px 2px 5px #c5e1a5;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 30px;
+}
+
+label {
+  display: block;
+}
+
+input {
+  border: 1px solid #8c8c8c;
+  color: #0f0f0f;
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  padding: 5px 30px 5px 5px;
+  width: calc(100% - 35px);
+  border-radius: 10px;
+}
+
+input:focus {
+  border-color: #0f0f0f;
+  outline: 1px solid #0f0f0f;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.button {
+    background-color: #dcedc8;
+    border: 0;
+    border-radius: 10%;
+    padding: 10px;
+}

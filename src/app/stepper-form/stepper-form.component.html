@@ -1,0 +1,38 @@
+<div class="container">
+  <form [formGroup]="stepperForm" (ngSubmit)="onSubmit()" class="stepperForm">
+    <div class="step" *ngFor="let step of steps; let index = index" [hidden]="currentStep !== index">
+      <h3>Step {{ index + 1 }}</h3>
+      <ng-container [formGroupName]="step">
+        <div *ngIf="step === 'step1'">
+          <label>Name:</label>
+          <input type="text" formControlName="name">
+          <div *ngIf="stepperForm.get('step1.name')?.invalid && (stepperForm.get('step1.name')?.dirty || stepperForm.get('step1.name')?.touched)">
+            <div *ngIf="stepperForm.get('step1.name')?.hasError('required')">Name is required.</div>
+          </div>
+        </div>
+        <div *ngIf="step === 'step2'">
+          <label>Email:</label>
+          <input type="email" formControlName="email">
+          <div *ngIf="stepperForm.get('step2.email')?.invalid && (stepperForm.get('step2.email')?.dirty || stepperForm.get('step2.email')?.touched)">
+            <div *ngIf="stepperForm.get('step2.email')?.hasError('required')">Email is required.</div>
+            <div *ngIf="stepperForm.get('step2.email')?.hasError('email')">Invalid email format.</div>
+          </div>
+        </div>
+        <div *ngIf="step === 'step3'">
+          <label>Birthdate:</label>
+          <input type="date" formControlName="birthdate">
+          <div *ngIf="stepperForm.get('step3.birthdate')?.invalid && (stepperForm.get('step3.birthdate')?.dirty || stepperForm.get('step3.birthdate')?.touched)">
+            <div *ngIf="stepperForm.get('step3.birthdate')?.hasError('required')">Birthdate is required.</div>
+          </div>
+        </div>
+      </ng-container>
+      <div class="buttons">
+        <button class="button" type="button" (click)="previousStep()" [disabled]="index === 0">Previous</button>
+        <button class="button" type="button" (click)="nextStep()" [disabled]="!stepperForm.get(step)?.valid">Next</button>
+      </div>
+    </div>
+    <div  *ngIf="currentStep === steps.length - 1">
+      <button class="button" type="submit" [disabled]="stepperForm.invalid">Submit</button>
+    </div>
+  </form>
+</div>
